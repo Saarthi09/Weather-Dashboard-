@@ -21,3 +21,15 @@ while True:
     parms['units'] = 'metric'
 
     url = serviceurl + urllib.parse.urlencode(parms)
+    print("Retrieving", url)
+    uh = urllib.request.urlopen(url)
+    data = uh.read().decode()
+    print("Retrieved", len(data), "characters")
+
+    js = json.loads(data)
+    if js == "TRUE":
+        continue
+    else: 
+        print("====DOWNLOAD ERROR====")
+        print(data)
+        continue 
