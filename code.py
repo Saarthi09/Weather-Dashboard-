@@ -21,4 +21,3 @@ while True:
     parms['units'] = 'metric'
 
     url = serviceurl + urllib.parse.urlencode(parms)
-    
