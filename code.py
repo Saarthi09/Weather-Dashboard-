@@ -26,10 +26,12 @@ while True:
     data = uh.read().decode()
     print("Retrieved", len(data), "characters")
 
-    js = json.loads(data)
-    if js == "TRUE":
-        continue
-    else: 
+    try:
+        js = json.loads(data)
+    except:
+        js = None
+    
+    if not js or 'main' not in js:
         print("====DOWNLOAD ERROR====")
         print(data)
-        continue 
+        continue
