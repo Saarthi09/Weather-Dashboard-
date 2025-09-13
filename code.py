@@ -35,3 +35,17 @@ while True:
         print("====DOWNLOAD ERROR====")
         print(data)
         continue
+
+    temp = js['main']['temp']
+    feels = js['main']['feels_like']
+    weather = js['weather'][0]['description']
+    wind = js['wind']['speed']
+    mintemp = js['main']['temp_min']
+    maxtemp = js['main']['temp_max']
+
+    print(f"City: {js['name']}, {js['sys']['country']}")
+    print(f"Temperature: {temp}°C (feels like {feels}°C)")
+    print(f"Condition: {weather}")
+    print(f"Wind speed: {wind}")
+    print(f"Max temp: {maxtemp}")
+    print(f"Min temp: {mintemp}")
